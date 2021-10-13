@@ -1,0 +1,42 @@
+
+<table align="center">
+    <thead>
+        <tr>
+            
+            <th>image</th>
+            
+             
+        </tr>
+    </thead>
+    <tbody>
+    {% for id,im in images.items %}
+    {% for x in im %}          
+        <tr><!--{{im}}-->
+            <td><img src="{{x}}" alt="my pic" name="img_path"></td>
+            <td>
+                <form action="{% url 'delete' %}" method="POST">
+                    {% csrf_token %}
+                <input type="hidden" value="{{id}}" name="id">
+                <input type="hidden" value="{{x}}" name="imagename">
+                <button type="submit">Delete</button>
+                </form>
+            </td>
+            <td>
+                <form action="{% url 'update' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                <input type="hidden" value="{{id}}" name="id">
+                <input type="hidden" value="{{x}}" name="upimage">
+                <input type="file"  name="images"><br>
+                <button type="submit">update</button>
+                </form>
+            </td>
+            <!--<img src="media/download (1)_e01lbi2.jpeg" alt="my pic"> -->
+        </tr>
+        {% endfor %}
+                    
+        {% endfor %}
+    </tbody>
+
+</table>
+

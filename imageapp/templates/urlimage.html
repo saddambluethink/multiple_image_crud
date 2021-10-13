@@ -1,0 +1,38 @@
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <h1>multiple images upload</h1>
+    
+    <input type="file" multiple name="images"><br>
+
+    <button type="submit" value="upload">upload</button>
+</form>
+
+<br>
+    <h1>all image here</h1><br>
+<!--
+
+    {% for im in images %}
+
+            <div class="col-md-4">
+                    <p>{{im.image.url }}</p>  
+                     <img src="{{im.image.url }}" class="img-responsive" style="width: 20%; float: left; margin-right: 10px;" />
+            </div> 
+
+            <h1>{{im.id }}</h1>
+    {% endfor %}
+-->
+
+
+    
+ 
+
+    {% for im in images %}
+       <!--{{im}}-->
+            <img src="{{im}}" alt="my pic">
+            <!--<img src="media/download (1)_e01lbi2.jpeg" alt="my pic"> -->
+         
+        {% endfor %}
+    
+
+
